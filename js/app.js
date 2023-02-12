@@ -50,11 +50,11 @@ function Person(id, name, dep, level, img, salary = 0) {
     this.salary = salary;
 
     if (this.level === 'Junior') {
-        this.salary = Math.floor(Math.random() * (1000 - 500 + 1)) + 500;
+        this.salary = (Math.floor(Math.random() * (1000 - 500 + 1)) + 500) * ( 1 - 0.075);
     } else if (this.level === 'Mid-Senior') {
-        this.salary = Math.floor(Math.random() * (1500 - 1000 + 1)) + 1000;
+        this.salary = (Math.floor(Math.random() * (1500 - 1000 + 1)) + 1000) * ( 1 - 0.075);
     } else if (this.level === 'Senior') {
-        this.salary = Math.floor(Math.random() * (2000 - 1500 + 1)) + 1500;
+        this.salary = (Math.floor(Math.random() * (2000 - 1500 + 1)) + 1500) * ( 1 - 0.075);
     }
 }
 
