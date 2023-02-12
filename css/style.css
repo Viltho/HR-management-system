@@ -31,6 +31,10 @@ main {
     margin: 20px 0px;
 }
 
+main img {
+    height: 300px;
+}
+
 main p {
     padding: 10px 0px;
 }
@@ -76,6 +80,6 @@ footer img {
 }
 
 footer img:hover {
-    background: rgb(255, 255, 255);
+    background: rgb(128, 128, 128);
     border-radius: 3px;
 }
