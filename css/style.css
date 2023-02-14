@@ -31,6 +31,10 @@ main {
     margin: 20px 0px;
 }
 
+form {
+    padding: 10px;
+}
+
 main img {
     height: 300px;
 }
@@ -39,8 +43,30 @@ main p {
     padding: 10px 0px;
 }
 
+
 #root {
-    display: inline-flex;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.meow {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    padding: 10px;
+    border-radius: 15px;
+    background: rgb(104, 104, 104);
+    margin-top: 10px;
+}
+
+.meow img {
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
 }
 
 footer * {
