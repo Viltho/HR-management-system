@@ -36,6 +36,10 @@ Person.prototype.render = function () {
     const imgEl = document.createElement('img');
     divEl.appendChild(imgEl);
     imgEl.setAttribute('src', this.img);
+    imgEl.addEventListener("error", function(event) {
+        event.target.src = "https://t3.ftcdn.net/jpg/04/62/93/66/360_F_462936689_BpEEcxfgMuYPfTaIAOC1tCDurmsno7Sp.jpg";
+        event.onerror = null;
+      })
 
 
     const idEl = document.createElement('p');
