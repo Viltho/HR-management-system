@@ -66,7 +66,7 @@ function workCheck() {
     footCell2.textContent = x;
 
     const footCell3 = document.getElementById('footCell3');
-    footCell3.textContent = x / personArr.length;
+    footCell3.textContent = Math.round(x / personArr.length);
 }
 
 getPeople();
