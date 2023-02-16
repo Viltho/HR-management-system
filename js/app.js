@@ -1,5 +1,5 @@
 'use strict';
-
+let personArr = [];
 function Person(fullName, department, level, imgurl) {
     this.id = 0;
     this.name = fullName;
@@ -7,6 +7,7 @@ function Person(fullName, department, level, imgurl) {
     this.level = level;
     this.img = imgurl;
     this.salary = 0;
+    personArr.push(this);
 }
 
 Person.prototype.salaryCalculate = function () {
@@ -25,35 +26,46 @@ Person.prototype.idCalculate = function () {
     return this.id;
 }
 
-Person.prototype.render = function () {
+function render() {
 
     const container = document.getElementById('root');
+    container.innerHTML = "";
 
-    const divEl = document.createElement('div');
-    divEl.classList.add("meow");
-    container.appendChild(divEl);
+    if (personArr == null) {
+        personArr = [];
+    }
 
-    const imgEl = document.createElement('img');
-    divEl.appendChild(imgEl);
-    imgEl.setAttribute('src', this.img);
-    imgEl.addEventListener("error", function(event) {
-        event.target.src = "https://t3.ftcdn.net/jpg/04/62/93/66/360_F_462936689_BpEEcxfgMuYPfTaIAOC1tCDurmsno7Sp.jpg";
-        event.onerror = null;
-      })
+    for (let i = 0; i < personArr.length; i++) {
+        const divEl = document.createElement('div');
+        divEl.classList.add("meow");
+        container.appendChild(divEl);
 
+        const imgEl = document.createElement('img');
+        divEl.appendChild(imgEl);
+        imgEl.setAttribute('src', personArr[i].img);
+        imgEl.setAttribute('alt', 'https://t3.ftcdn.net/jpg/04/62/93/66/360_F_462936689_BpEEcxfgMuYPfTaIAOC1tCDurmsno7Sp.jpg');
+        imgEl.addEventListener("error", function (event) {
+            event.target.src = "https://t3.ftcdn.net/jpg/04/62/93/66/360_F_462936689_BpEEcxfgMuYPfTaIAOC1tCDurmsno7Sp.jpg";
+            event.onerror = null;
+        })
 
-    const idEl = document.createElement('p');
-    divEl.appendChild(idEl);
-    idEl.textContent = `ID : ${this.id} has been added`;
+        const idEl = document.createElement('p');
+        divEl.appendChild(idEl);
+        idEl.textContent = `ID : ${personArr[i].id} has been added`;
 
-    const detailEl = document.createElement('h5');
-    divEl.appendChild(detailEl);
-    detailEl.textContent = `${this.name}, ${this.dep}, as a ${this.level} with a salary of ${this.salary}.`
-
+        const detailEl = document.createElement('h5');
+        divEl.appendChild(detailEl);
+        detailEl.textContent = `${personArr[i].name}, ${personArr[i].dep}, as a ${personArr[i].level} with a salary of ${personArr[i].salary}.`
+    }
 }
 
 let employeeForm = document.getElementById("employeeForm");
 employeeForm.addEventListener('submit', addNewEmployee);
+
+function getPeople() {
+    let jsonArr = localStorage.getItem("allPeople");
+    personArr = JSON.parse(jsonArr);
+}
 
 function addNewEmployee(event) {
 
@@ -65,7 +77,16 @@ function addNewEmployee(event) {
     let imgurl = event.target.imgurl.value;
 
     let newEmployee = new Person(fullName, department, level, imgurl);
+
     newEmployee.salaryCalculate();
     newEmployee.idCalculate();
-    newEmployee.render();
+
+    let jsonArr = JSON.stringify(personArr);
+    localStorage.setItem("allPeople", jsonArr);
+
+    render();
 }
+
+getPeople();
+
+render();
