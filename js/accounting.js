@@ -53,6 +53,20 @@ function workCheck() {
         tableRow1.appendChild(trE14);
         trE14.textContent = resultObj[dep].avgOfSalaryPerDepartment;
     }
+
+
+    const footCell1 = document.getElementById('footCell1');
+    footCell1.textContent = personArr.length;
+
+    const footCell2 = document.getElementById('footCell2');
+    let x = 0;
+    for (const employee of personArr) {
+        x += employee.salary;
+    }
+    footCell2.textContent = x;
+
+    const footCell3 = document.getElementById('footCell3');
+    footCell3.textContent = Math.round(x / personArr.length);
 }
 
 getPeople();
