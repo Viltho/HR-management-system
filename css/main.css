@@ -37,54 +37,50 @@ header a:link {
 header img {
     width: 35px;
     height: 35px;
-    src: url(https://stackoverflow.com/does-not-exist.png);
 }
 
-main {
-    margin-top: 10px;
+#collect form {
     display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-}
-
-#root {
-    display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    margin-bottom: 20px;
+    justify-content: space-evenly;
 }
 
-.meow * {
-    padding: 3px 0px;
+#collect form p {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin: 10px 0px;
 }
 
-.meow {
+input {
+    font-size: 1rem;
+    padding: 0.2rem 1rem;
+}
+
+button {
+    background-color: cornflowerblue;
     color: white;
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    padding: 10px;
-    border-radius: 15px;
-    background: rgb(104, 104, 104);
-    margin-top: 10px;
+    font-size: 1rem;
+    padding: 0.2rem 3rem;
+    border: none;
 }
 
-.meow img {
-    width: 150px;
-    height: 150px;
-    border-radius: 5px;
+#display table {
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
 }
 
-.section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+th,
+td {
+    text-align: center;
+    padding: 0.25rem 1rem;
+    border: 1px solid #ccc;
 }
-.section img {
-    width: 300px;
-    height: 300px;
+
+tbody>tr:nth-child(odd) {
+    background-color: #eee;
 }
 
 footer {
